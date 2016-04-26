@@ -10,6 +10,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class JacksonSerializationAnnotationsTest {
 
     private ExtendableBeanJsonAnyGetter beanJsonAnyGetter;
@@ -80,6 +84,19 @@ public class JacksonSerializationAnnotationsTest {
         Assert.assertEquals(true, result.contains(name));
         Assert.assertEquals(true, result.contains("user"));
         System.out.println(result);
+    }
+
+    @Test
+    public void jsonSerializeTest() throws ParseException, JsonProcessingException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+
+        String toParse = "26-04-2016 01:18:00";
+        Date date = dateFormat.parse(toParse);
+        Event event = new Event("party", date);
+
+        String result = new ObjectMapper().writeValueAsString(event);
+        System.out.println(result);
+        Assert.assertEquals(true, result.contains(toParse));
     }
 
     @After
