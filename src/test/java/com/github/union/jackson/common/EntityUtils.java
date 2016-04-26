@@ -2,6 +2,7 @@ package com.github.union.jackson.common;
 
 import com.github.union.jackson.bean.ExtendableBeanJsonAnyGetter;
 import com.github.union.jackson.bean.MyBeanJsonGetter;
+import com.github.union.jackson.bean.MyBeanJsonPropertyOrder;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 
@@ -26,5 +27,9 @@ public class EntityUtils {
 
     public static MyBeanJsonGetter generaeMyBeanJsonGetter() {
         return new MyBeanJsonGetter(getRandomInteger(MAX_NUMBER), getRandomString(MAX_STRING_LENGTH));
+    }
+
+    public static MyBeanJsonPropertyOrder generateMyBeanJsonPropertyOrder() {
+        return new MyBeanJsonPropertyOrder(getRandomInteger(MAX_NUMBER), getRandomString(MAX_STRING_LENGTH));
     }
 }
