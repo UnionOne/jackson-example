@@ -1,15 +1,15 @@
-package com.github.union.jackson.jsonanygetter;
+package com.github.union.jackson.bean;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExtendableBean {
+public class ExtendableBeanJsonAnyGetter {
     private String name;
     private Map<String, String> properties;
 
-    public ExtendableBean(String name) {
+    public ExtendableBeanJsonAnyGetter(String name) {
         this.name = name;
         this.properties = new HashMap<>();
     }
@@ -37,7 +37,7 @@ public class ExtendableBean {
 
     @Override
     public String toString() {
-        return "ExtendableBean{" +
+        return "ExtendableBeanJsonAnyGetter{" +
                 "name='" + name + '\'' +
                 ", properties=" + properties +
                 '}';
