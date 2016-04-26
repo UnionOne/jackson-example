@@ -2,10 +2,8 @@ package com.github.union.jackson;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.union.jackson.bean.ExtendableBeanJsonAnyGetter;
-import com.github.union.jackson.bean.MyBeanJsonGetter;
-import com.github.union.jackson.bean.MyBeanJsonPropertyOrder;
-import com.github.union.jackson.bean.MyBeanJsonRawValue;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.github.union.jackson.bean.*;
 import com.github.union.jackson.common.EntityUtils;
 import org.junit.After;
 import org.junit.Assert;
@@ -18,6 +16,7 @@ public class JacksonSerializationAnnotationsTest {
     private MyBeanJsonGetter myBeanJsonGetter;
     private MyBeanJsonPropertyOrder myBeanJsonPropertyOrder;
     private MyBeanJsonRawValue myBeanJsonRawValue;
+    private MyBeanJsonRootName myBeanJsonRootName;
 
     @Before
     public void setUp() {
@@ -25,6 +24,7 @@ public class JacksonSerializationAnnotationsTest {
         myBeanJsonGetter = EntityUtils.generaeMyBeanJsonGetter();
         myBeanJsonPropertyOrder = EntityUtils.generateMyBeanJsonPropertyOrder();
         myBeanJsonRawValue = EntityUtils.generateMyBeanJsonRawValue();
+        myBeanJsonRootName = EntityUtils.generateMyBeanJsonRootName();
     }
 
     @Test
@@ -66,6 +66,19 @@ public class JacksonSerializationAnnotationsTest {
         String result = new ObjectMapper().writeValueAsString(myBeanJsonRawValue);
         Assert.assertEquals(true, result.contains(json));
         Assert.assertEquals(true, result.contains(name));
+        System.out.println(result);
+    }
+
+    @Test
+    public void jsonRootNameTest() throws JsonProcessingException {
+        String name = myBeanJsonRootName.getName();
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
+        String result = mapper.writeValueAsString(myBeanJsonRootName);
+
+        Assert.assertEquals(true, result.contains(name));
+        Assert.assertEquals(true, result.contains("user"));
         System.out.println(result);
     }
 

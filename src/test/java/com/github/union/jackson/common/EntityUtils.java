@@ -1,9 +1,6 @@
 package com.github.union.jackson.common;
 
-import com.github.union.jackson.bean.ExtendableBeanJsonAnyGetter;
-import com.github.union.jackson.bean.MyBeanJsonGetter;
-import com.github.union.jackson.bean.MyBeanJsonPropertyOrder;
-import com.github.union.jackson.bean.MyBeanJsonRawValue;
+import com.github.union.jackson.bean.*;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 
@@ -37,5 +34,9 @@ public class EntityUtils {
     public static MyBeanJsonRawValue generateMyBeanJsonRawValue() {
         return new MyBeanJsonRawValue("{" + getRandomString(MAX_STRING_LENGTH) + ":" + getRandomString(MAX_STRING_LENGTH) + "}",
                 getRandomString(MAX_STRING_LENGTH));
+    }
+
+    public static MyBeanJsonRootName generateMyBeanJsonRootName() {
+        return new MyBeanJsonRootName(getRandomInteger(MAX_NUMBER), getRandomString(MAX_STRING_LENGTH));
     }
 }
