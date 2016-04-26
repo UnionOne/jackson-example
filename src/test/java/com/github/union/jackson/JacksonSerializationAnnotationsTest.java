@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.union.jackson.bean.ExtendableBeanJsonAnyGetter;
 import com.github.union.jackson.bean.MyBeanJsonGetter;
 import com.github.union.jackson.bean.MyBeanJsonPropertyOrder;
+import com.github.union.jackson.bean.MyBeanJsonRawValue;
 import com.github.union.jackson.common.EntityUtils;
 import org.junit.After;
 import org.junit.Assert;
@@ -16,12 +17,14 @@ public class JacksonSerializationAnnotationsTest {
     private ExtendableBeanJsonAnyGetter beanJsonAnyGetter;
     private MyBeanJsonGetter myBeanJsonGetter;
     private MyBeanJsonPropertyOrder myBeanJsonPropertyOrder;
+    private MyBeanJsonRawValue myBeanJsonRawValue;
 
     @Before
     public void setUp() {
         beanJsonAnyGetter = EntityUtils.generateExtendableBean();
         myBeanJsonGetter = EntityUtils.generaeMyBeanJsonGetter();
         myBeanJsonPropertyOrder = EntityUtils.generateMyBeanJsonPropertyOrder();
+        myBeanJsonRawValue = EntityUtils.generateMyBeanJsonRawValue();
     }
 
     @Test
@@ -51,6 +54,17 @@ public class JacksonSerializationAnnotationsTest {
 
         String result = new ObjectMapper().writeValueAsString(myBeanJsonPropertyOrder);
         Assert.assertEquals(true, result.contains(id.toString()));
+        Assert.assertEquals(true, result.contains(name));
+        System.out.println(result);
+    }
+
+    @Test
+    public void jsonRawValueTest() throws JsonProcessingException {
+        String json = myBeanJsonRawValue.getJson();
+        String name = myBeanJsonRawValue.getName();
+
+        String result = new ObjectMapper().writeValueAsString(myBeanJsonRawValue);
+        Assert.assertEquals(true, result.contains(json));
         Assert.assertEquals(true, result.contains(name));
         System.out.println(result);
     }
