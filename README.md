@@ -8,3 +8,5 @@ The **[@JsonGetter](https://github.com/UnionOne/jackson-example/blob/master/src/
 The **[@JsonPropertyOrder](https://github.com/UnionOne/jackson-example/blob/master/src/main/java/com/github/union/jackson/bean/MyBeanJsonPropertyOrder.java#L5)** annotation is used to specify the order of properties on serialization.
 
 The **[@JsonRawValue](https://github.com/UnionOne/jackson-example/blob/master/src/main/java/com/github/union/jackson/bean/MyBeanJsonRawValue.java#L8)** annotation  is used to instruct the Jackson to serialize a property exactly as is.
+
+The **[@JsonRootName](https://github.com/UnionOne/jackson-example/blob/master/src/main/java/com/github/union/jackson/bean/MyBeanJsonRootName.java#L5)** annotation is used – if wrapping is enabled – to specify the name of the root wrapper to be used.
