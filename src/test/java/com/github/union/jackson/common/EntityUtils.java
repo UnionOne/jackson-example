@@ -1,6 +1,6 @@
 package com.github.union.jackson.common;
 
-import com.github.union.jackson.bean.*;
+import com.github.union.jackson.serialization.bean.*;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 

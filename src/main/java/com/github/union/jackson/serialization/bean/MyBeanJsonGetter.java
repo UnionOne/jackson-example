@@ -1,14 +1,10 @@
-package com.github.union.jackson.bean;
+package com.github.union.jackson.serialization.bean;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 
 public class MyBeanJsonGetter {
     private int id;
     private String name;
-
-    public MyBeanJsonGetter() {
-        this(1, "default");
-    }
 
     public MyBeanJsonGetter(int id, String name) {
         super();

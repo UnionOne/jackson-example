@@ -1,4 +1,4 @@
-package com.github.union.jackson.bean;
+package com.github.union.jackson.serialization.bean;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 

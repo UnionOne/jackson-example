@@ -1,18 +1,13 @@
-package com.github.union.jackson.bean;
+package com.github.union.jackson.serialization.bean;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JsonPropertyOrder({"name", "id"})
-public class MyBeanJsonPropertyOrder {
+@JsonRootName(value = "user")
+public class MyBeanJsonRootName {
     private int id;
     private String name;
 
-    public MyBeanJsonPropertyOrder() {
-        this(1, "default");
-    }
-
-    public MyBeanJsonPropertyOrder(int id, String name) {
-        super();
+    public MyBeanJsonRootName(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -35,7 +30,7 @@ public class MyBeanJsonPropertyOrder {
 
     @Override
     public String toString() {
-        return "MyBeanJsonPropertyOrder{" +
+        return "MyBeanJsonRootName{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

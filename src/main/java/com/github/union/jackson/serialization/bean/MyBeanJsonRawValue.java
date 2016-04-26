@@ -1,4 +1,4 @@
-package com.github.union.jackson.bean;
+package com.github.union.jackson.serialization.bean;
 
 import com.fasterxml.jackson.annotation.JsonRawValue;
 
@@ -27,5 +27,13 @@ public class MyBeanJsonRawValue {
 
     public void setJson(String json) {
         this.json = json;
+    }
+
+    @Override
+    public String toString() {
+        return "MyBeanJsonRawValue{" +
+                "name='" + name + '\'' +
+                ", json='" + json + '\'' +
+                '}';
     }
 }

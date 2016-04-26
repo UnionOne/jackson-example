@@ -1,4 +1,4 @@
-package com.github.union.jackson.bean;
+package com.github.union.jackson.serialization.bean;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -29,5 +29,13 @@ public class Event {
 
     public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "name='" + name + '\'' +
+                ", eventDate=" + eventDate +
+                '}';
     }
 }
